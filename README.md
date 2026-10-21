@@ -61,3 +61,7 @@ npm run preview
 - 반응형 페이지 및 기본 검색 메타데이터
 
 Sites 제작 가이드를 참고했으나 현재 실행 환경에는 Sites source/publish helper가 없어서 Sites 호스팅은 수행하지 않았습니다. Graphify는 연결 워크스페이스 접근 오류로 코드 인덱스를 사용하지 못했습니다. Vercel은 사용자의 추후 배포 계획에 맞춰 설정 파일만 준비했습니다.
+
+## 디자인 업데이트
+
+Pretendard 가변 폰트를 로컬에 포함하고 라임·딥 그린 중심의 큰 타이포그래피로 재설계했습니다. `src/redesign.css`는 새로운 디자인, `src/motion.js`는 스크롤 등장·제품 카드 기울기·모션 제어를 담당합니다. 모션 멈춤 버튼과 운영체제의 `prefers-reduced-motion` 설정을 지원합니다. 폰트 라이선스는 `public/fonts/LICENSE.txt`에 포함되어 있습니다.
