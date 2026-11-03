@@ -1,6 +1,8 @@
 // 실제 운영 정보로 교체하세요. 빈 구매 주소는 안내창을 표시합니다.
 export const siteConfig = {
-  shopUrl: '', smartstoreUrl: '', instagramUrl: 'https://www.instagram.com/good_namul/',
+  shopUrl: '', smartstoreUrl: 'https://naver.me/FpPBRQ6z', instagramUrl: 'https://www.instagram.com/good_namul/',
+  // Set after uploading the supplied video to public/videos/ or Firebase Storage.
+  storyVideoUrl: '',
   phone: '', bulkEmail: '', address: '강원특별자치도 정선군',
   firebase: {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY || '',
