@@ -1,6 +1,7 @@
 import './style.css';
 import './redesign.css';
 import './brand.css';
+import { applyPouchArtwork } from './pouches.js';
 import { renderBrandStory, historySummary } from './brand.js';
 import { initBackgroundVideos } from './background-video.js';
 import {siteConfig as config} from './config.js';
@@ -32,6 +33,7 @@ if (isBrandPage) {
 }
 document.querySelectorAll('.logo').forEach(a=>a.setAttribute('href','/'));
 initBackgroundVideos(config.storyVideoUrl);
+applyPouchArtwork();
 document.querySelector('#company-address').textContent=config.address;
 const contact=document.querySelector('#contact');
 if(config.phone){const a=document.createElement('a');a.href='tel:'+config.phone.replace(/[^+\d]/g,'');a.textContent=config.phone;contact.append(a);}else contact.textContent='연락처 안내 준비 중';
