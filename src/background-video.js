@@ -4,7 +4,7 @@ export function initBackgroundVideos(url){
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  document.querySelectorAll('.landscape').forEach(container=>{
   const video=document.createElement('video');
-  video.muted=true;video.defaultMuted=true;video.loop=true;video.playsInline=true;video.preload='metadata';video.poster='/images/mountains.svg';video.setAttribute('aria-label','산지 풍경 연출 영상');video.src=url;
+  video.muted=true;video.defaultMuted=true;video.loop=true;video.playsInline=true;video.preload='metadata';video.poster='/images/gangwon-scenery.png';video.setAttribute('aria-label','산지 풍경 연출 영상');video.src=url;
   const button=document.createElement('button');button.className='video-toggle';button.type='button';button.hidden=true;
   let localPaused=false,visible=false,ready=false;
   const globallyPaused=()=>document.body.classList.contains('motion-paused');
