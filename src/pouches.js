@@ -21,7 +21,7 @@ export function applyPouchArtwork() {
       card.classList.remove('has-pouch-artwork');
       card.querySelectorAll('.package,.art-label').forEach(el => el.hidden = false);
     }, {once: true});
-    image.alt = card.getAttribute('aria-label').replace(' 상세 보기', '') + (id === 'gift' ? ' 제품 이미지' : ' 새 파우치 디자인');
+    image.alt = card.getAttribute('aria-label').replace(' 스마트스토어에서 구매하기', '') + (id === 'gift' ? ' 제품 이미지' : ' 새 파우치 디자인');
     image.loading = 'eager';
     image.decoding = 'async';
     // Local approved artwork takes priority over older Firebase product photos.

@@ -14,3 +14,9 @@
 /* Gift photography retains its full composition. */
 .product-art.has-pouch-artwork[data-product="gift"] { padding: 0; background: #f5f4f0; }
 .product-art.has-pouch-artwork[data-product="gift"] > img { object-fit: contain; transform: none; filter: none; }
+
+/* Equal specificity for every product, including alternating and gift cards. */
+.product .product-art.has-pouch-artwork:hover>img,.product .product-art.has-pouch-artwork:focus-visible>img{transform:rotate(0deg) scale(1.06)}
+.product .product-art.has-pouch-artwork[data-product="gift"]:hover>img,.product .product-art.has-pouch-artwork[data-product="gift"]:focus-visible>img{transform:scale(1.06)}
+.motion-paused .product-art.has-pouch-artwork>img{transform:none;transition:none}
+@media(prefers-reduced-motion:reduce){.product .product-art.has-pouch-artwork>img{transform:none!important}}
