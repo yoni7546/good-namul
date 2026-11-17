@@ -10,3 +10,7 @@
 @media(max-width:1050px){.product-art.has-pouch-artwork{height:320px;padding:28px 30px}}
 @media(max-width:760px){.product-art.has-pouch-artwork{height:250px;padding:20px 16px}}
 @media(prefers-reduced-motion:reduce){.product-art.has-pouch-artwork>img{transition:none}}
+
+/* Gift photography retains its full composition. */
+.product-art.has-pouch-artwork[data-product="gift"] { padding: 0; background: #f5f4f0; }
+.product-art.has-pouch-artwork[data-product="gift"] > img { object-fit: contain; transform: none; filter: none; }
