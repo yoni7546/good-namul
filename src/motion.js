@@ -11,5 +11,12 @@ export function initMotion(){
  const progress=document.createElement('div');progress.className='scroll-progress';progress.setAttribute('aria-hidden','true');document.body.append(progress);
  let scheduled=false;const update=()=>{const distance=document.documentElement.scrollHeight-innerHeight;progress.style.transform=`scaleX(${distance>0?scrollY/distance:0})`;document.querySelector('header').classList.toggle('scrolled',scrollY>30);updateLandscape();scheduled=false};
  addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(update)}},{passive:true});addEventListener('resize',update);update();
+ // Count only the number in the main 5-second badge, once on entry.
+ const badge=document.querySelector('.hero .altitude b');
+ const number=badge && [...badge.childNodes].find(node=>node.nodeType===Node.TEXT_NODE && node.textContent.trim()==='5');
+ if(number && !paused && !new URLSearchParams(location.search).has('editor-preview')){
+  number.textContent='1';
+  for(let value=2;value<=5;value++)setTimeout(()=>{number.textContent=paused?'5':String(value)},(value-1)*350);
+ }
  if(matchMedia('(hover: hover) and (pointer: fine)').matches){document.querySelectorAll('.product-art').forEach(card=>{card.addEventListener('pointermove',e=>{if(paused||reduced.matches)return;const r=card.getBoundingClientRect();card.style.transform=`perspective(900px) rotateX(${-(e.clientY-r.top-r.height/2)/45}deg) rotateY(${(e.clientX-r.left-r.width/2)/45}deg)`});card.addEventListener('pointerleave',()=>card.style.transform='');});}
 }
