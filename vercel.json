@@ -23,6 +23,10 @@
   ],
   "rewrites": [
     {
+      "source": "/admin",
+      "destination": "/admin.html"
+    },
+    {
       "source": "/brand",
       "destination": "/index.html"
     },
