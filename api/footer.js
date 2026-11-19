@@ -2,7 +2,7 @@ import { initializeApp, getApps, cert } from 'firebase-admin/app';
 import { getFirestore, FieldValue } from 'firebase-admin/firestore';
 import crypto from 'node:crypto';
 const fields=['company','representative','address','businessNumber','mailOrderNumber','email','privacyOfficer','phone','fax','hosting','hours','contactNote','bank','account','accountHolder','privacy','terms','guide','partnership'];
-const defaults={company:'고원농산영농조합법인',representative:'윤봉득',phone:'010-4189-4444',businessNumber:'2258111973',address:'강원도 정선군 사북읍 직전로 299 (우: 233905)',mailOrderNumber:'2015-강원정선-7호',email:'gowon7772@hanmail.net'};
+const defaults={company:'고원농산영농조합법인',representative:'윤봉득',privacyOfficer:'윤봉득',phone:'010-4189-4444',businessNumber:'2258111973',address:'강원도 정선군 사북읍 직전로 299 (우: 233905)',mailOrderNumber:'2015-강원정선-7호',email:'gowon7772@hanmail.net'};
 export default async function handler(req,res){
  res.setHeader('Cache-Control','no-store');
  try{const account=JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT||'{}');if(!account.private_key||!process.env.ADMIN_PIN)return res.status(503).json({error:'관리자 설정을 확인해 주세요.'});const db=getFirestore(getApps()[0]||initializeApp({credential:cert(account)}));const ref=db.doc('site/footer');
