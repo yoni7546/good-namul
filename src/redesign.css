@@ -45,3 +45,9 @@ footer .logo .brand-logo-image{width:145px;height:95px}
 .leaf-one{top:8%;left:auto;right:12%}
 @media(max-width:760px){.hero-visual .bowl{width:88%;max-width:420px}.hero-word{top:16%;left:8%;font-size:clamp(42px,12vw,60px)}.leaf-one{top:7%;left:auto;right:9%}}
 .hero-visual .orbit:after{top:auto;left:auto;right:8%;bottom:9%}
+/* Refine only the text over the main photo. */
+.hero-visual .hero-word{display:none}
+.hero-visual .visual-caption{font-size:14px}
+.hero-visual .visual-caption b{font-size:20px}
+@media(max-width:760px){.hero-visual .visual-caption{font-size:12px}.hero-visual .visual-caption b{font-size:16px}}
+@media(max-width:360px){.hero-visual .visual-caption{left:32px;top:16px}.hero-visual .leaf-one{top:22%;right:12%}}
