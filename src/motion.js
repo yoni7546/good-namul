@@ -12,7 +12,7 @@ export function initMotion(){
   if(!headlineNumber || editorPreview)return;
   if(paused){headlineNumber.textContent='5';return;}
   let value=1;
-  function tick(){if(paused)return;headlineNumber.textContent=String(value);const delay=value===5?900:350;value=value===5?1:value+1;headlineTimer=setTimeout(tick,delay);}
+  function tick(){if(paused)return;headlineNumber.textContent=String(value);const delay=value===5?20000:1000;value=value===5?1:value+1;headlineTimer=setTimeout(tick,delay);}
   tick();
  }
  function sync(){syncHeadline();document.body.classList.toggle('motion-paused',paused);toggle.textContent=paused?'▶ 모션 재생':'Ⅱ 모션 멈춤';toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',paused?'모션 재생':'모션 일시 정지');requestAnimationFrame(updateLandscape);}
