@@ -19,6 +19,11 @@ export function initMotion(){
  toggle.addEventListener('click',()=>{paused=!paused;sync()});reduced.addEventListener('change',e=>{paused=e.matches;sync()});document.body.append(toggle);sync();
  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}}),{threshold:.08});
  document.querySelectorAll('.story-copy,.landscape,.section-heading,.promise-grid article,.features>div,.product,.recipe-copy,.recipe-photo,.awards .section>div,.buy h2,.channel-grid>*').forEach((el,i)=>{el.style.setProperty('--delay',`${i%3*70}ms`);el.classList.add('reveal');observer.observe(el)});
+ const featureList=document.querySelector('.feature-list');
+ if(featureList && !editorPreview){
+  const featureObserver=new IntersectionObserver(entries=>{featureList.classList.toggle('features-sequence',entries[0].isIntersecting)},{threshold:.2});
+  featureObserver.observe(featureList);
+ }
  function updateLandscape(){for(const el of landscapes){const r=el.getBoundingClientRect();const p=Math.max(0,Math.min(1,(innerHeight-r.top)/(innerHeight+r.height)));el.style.setProperty('--scenery-scale',paused?'1':String(1.08+p*.24));el.style.setProperty('--scenery-y',paused?'0%':`${(p-.5)*8}%`);}}
  const progress=document.createElement('div');progress.className='scroll-progress';progress.setAttribute('aria-hidden','true');document.body.append(progress);
  let scheduled=false;const update=()=>{const distance=document.documentElement.scrollHeight-innerHeight;progress.style.transform=`scaleX(${distance>0?scrollY/distance:0})`;document.querySelector('header').classList.toggle('scrolled',scrollY>30);updateLandscape();scheduled=false};
