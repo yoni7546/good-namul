@@ -38,3 +38,10 @@
 .logo .brand-logo-image{display:block;width:118px;height:78px;object-fit:contain}
 footer .logo .brand-logo-image{width:145px;height:95px}
 @media(max-width:760px){.logo .brand-logo-image{width:92px;height:62px}footer .logo .brand-logo-image{width:120px;height:80px}}
+
+/* Main photo and decorative caption placement. */
+.hero-visual .bowl{width:92%;max-width:670px}
+.hero-word{z-index:3;top:16%;left:8%;font-size:clamp(46px,5vw,76px);opacity:.32}
+.leaf-one{top:8%;left:auto;right:12%}
+@media(max-width:760px){.hero-visual .bowl{width:88%;max-width:420px}.hero-word{top:16%;left:8%;font-size:clamp(42px,12vw,60px)}.leaf-one{top:7%;left:auto;right:9%}}
+.hero-visual .orbit:after{top:auto;left:auto;right:8%;bottom:9%}
