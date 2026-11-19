@@ -1,5 +1,5 @@
 import './footer-info.css';
-const defaults={company:'고원농산영농조합법인',representative:'윤봉득',privacyOfficer:'윤봉득',phone:'010-4189-4444',businessNumber:'2258111973',address:'강원도 정선군 사북읍 직전로 299 (우: 233905)',mailOrderNumber:'2015-강원정선-7호',email:'gowon7772@hanmail.net'};
+const defaults={company:'고원농산영농조합법인',representative:'윤봉득',privacyOfficer:'윤봉득',hours:'평일 오전 9시 ~ 오후 6시 · 주말 및 공휴일 휴무',phone:'010-4189-4444',businessNumber:'2258111973',address:'강원도 정선군 사북읍 직전로 299 (우: 233905)',mailOrderNumber:'2015-강원정선-7호',email:'gowon7772@hanmail.net'};
 export async function initFooterInfo(){
  const footer=document.querySelector('footer');if(!footer || footer.querySelector('.business-footer'))return;
  let data=defaults;try{const res=await fetch('/api/footer');if(res.ok)data={...defaults,...await res.json()}}catch{}
@@ -13,7 +13,6 @@ export async function initFooterInfo(){
  function line(pairs){const p=document.createElement('p');for(const [i,[label,key]] of pairs.entries()){if(i)p.append(document.createTextNode('  /  '));const span=document.createElement('span');span.textContent=label+' : '+(data[key]||'등록 전');p.append(span)}return p}
  business.append(line([['대표','representative'],['사업장 소재지','address']]),line([['사업자등록번호','businessNumber'],['통신판매업신고','mailOrderNumber']]),line([['이메일','email'],['개인정보보호책임자','privacyOfficer']]),line([['전화번호','phone']]));
  const copyright=document.createElement('p');copyright.className='footer-copyright';copyright.textContent='© '+new Date().getFullYear()+' 고원농산영농조합법인. All rights reserved.';const insta=document.createElement('a');insta.href='https://www.instagram.com/good_namul/';insta.target='_blank';insta.rel='noopener noreferrer';insta.className='footer-social';insta.textContent='Instagram ↗';business.append(copyright,insta);
- const customer=document.createElement('section');customer.className='footer-customer';const custTitle=document.createElement('h2');custTitle.textContent='고객센터';const phone=document.createElement('p');phone.className='footer-phone';phone.textContent=data.phone||'연락처 등록 전';const hours=document.createElement('p');hours.textContent=data.hours||'운영시간 등록 전';const note=document.createElement('p');note.textContent=data.contactNote||'대량구매 문의 안내 준비 중';customer.append(custTitle,phone,hours,note);
- const bank=document.createElement('section');bank.className='footer-bank';const bankTitle=document.createElement('h2');bankTitle.textContent='은행정보';bank.append(bankTitle,line([['은행','bank']]),line([['계좌번호','account']]),line([['예금주','accountHolder']]));
- grid.append(business,customer,bank);wrap.append(links,grid,dialog);footer.append(wrap);
+ const customer=document.createElement('section');customer.className='footer-customer';const custTitle=document.createElement('h2');custTitle.textContent='고객센터';const phone=document.createElement('p');phone.className='footer-phone';phone.textContent=data.phone||'연락처 등록 전';const hours=document.createElement('p');hours.textContent=data.hours||'운영시간 등록 전';customer.append(custTitle,phone,hours);
+ grid.append(business,customer);wrap.append(links,grid,dialog);footer.append(wrap);
 }
