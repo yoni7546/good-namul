@@ -1,6 +1,7 @@
+import { siteTerms } from '../lib/site-terms.js';
 import './footer-info.css';
 import { privacyPolicy } from '../lib/privacy-policy.js';
-const defaults={privacy:privacyPolicy,company:'고원농산영농조합법인',representative:'윤봉득',privacyOfficer:'윤봉득',hours:'평일 오전 9시 ~ 오후 6시 · 주말 및 공휴일 휴무',phone:'010-4189-4444',businessNumber:'2258111973',address:'강원도 정선군 사북읍 직전로 299 (우: 233905)',mailOrderNumber:'2015-강원정선-7호',email:'gowon7772@hanmail.net'};
+const defaults={terms:siteTerms,privacy:privacyPolicy,company:'고원농산영농조합법인',representative:'윤봉득',privacyOfficer:'윤봉득',hours:'평일 오전 9시 ~ 오후 6시 · 주말 및 공휴일 휴무',phone:'010-4189-4444',businessNumber:'2258111973',address:'강원도 정선군 사북읍 직전로 299 (우: 233905)',mailOrderNumber:'2015-강원정선-7호',email:'gowon7772@hanmail.net'};
 export async function initFooterInfo(){
  const footer=document.querySelector('footer');if(!footer || footer.querySelector('.business-footer'))return;
  let data=defaults;try{const res=await fetch('/api/footer');if(res.ok)data={...defaults,...await res.json()}}catch{}
