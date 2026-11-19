@@ -32,3 +32,9 @@
 @media(prefers-reduced-motion:reduce){.feature-list.features-sequence article{animation:none}}
 
 @media(max-width:760px){.feature-list article{--feature-zoom:1.06}}
+
+/* Supplied brand mark in the header and footer. */
+.logo:has(.brand-logo-image)>svg,.logo:has(.brand-logo-image)>span{display:none}
+.logo .brand-logo-image{display:block;width:118px;height:78px;object-fit:contain}
+footer .logo .brand-logo-image{width:145px;height:95px}
+@media(max-width:760px){.logo .brand-logo-image{width:92px;height:62px}footer .logo .brand-logo-image{width:120px;height:80px}}
