@@ -1,0 +1,6 @@
+.managed-product .managed-art{height:380px;padding:32px 42px;background:#e7eddf;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-radius:12px}
+.managed-product .managed-art:before{display:none}.managed-product .managed-art img{width:100%;height:100%;object-fit:contain;transition:transform .4s;filter:drop-shadow(8px 14px 10px #173e2c24)}
+.managed-product .managed-art:not(.is-upcoming):hover img{transform:scale(1.06)}.managed-product .managed-art.is-upcoming img{filter:blur(8px);opacity:.75}.managed-product .managed-art.is-upcoming{background:#f3e2d9}.managed-product .managed-price del{display:inline-block;margin-left:8px;color:#859384;font-size:13px}.managed-discount{color:#ca5c40;font-weight:800;margin-right:8px}.managed-product .managed-price strong{font-size:20px}
+@media(max-width:1050px){.managed-product .managed-art{height:320px;padding:28px 30px}}@media(max-width:760px){.managed-product .managed-art{height:250px;padding:20px 16px}.managed-product .managed-price strong{font-size:17px}}@media(prefers-reduced-motion:reduce){.managed-product .managed-art img{transition:none}}
+
+.managed-saving{display:block;margin-top:4px;font-size:12px;font-weight:700;color:#b55238}

@@ -1,4 +1,5 @@
 import { initSpicyProducts } from './spicy.js';
+import { applyManagedProducts } from './products-admin.js';
 const selectors='h1,h2,h3,h4,p,small,em,strong,b,span,time,a,button,.eyebrow,.landscape-label,.brand-five,.number,.simple,.badges span,.footer-bottom b,.history-summary b,.history-summary small,.history-timeline time,.feature-list span,.recipe-steps b,.recipe-steps span,.product-meta strong,.product-meta small,.announcement,.channel-grid small';
 export function editableNodes(){
  const page=location.pathname.startsWith('/brand')?'brand':'home';let counter=0;const result=[];
@@ -8,4 +9,4 @@ export function editableNodes(){
  }
  return result;
 }
-export function applyEditable(content){const nodes=editableNodes();for(const item of nodes){const value=content?.copyNodes?.[item.key];if(typeof value==='string' && value.trim())item.node.textContent=value;}if(new URLSearchParams(location.search).has('editor-preview'))window.copyEditorNodes=Object.fromEntries(nodes.map(x=>[x.key,x.node]));window.copyEditorFields=nodes.map(x=>({key:x.key,section:x.section,defaultText:x.defaultText,currentText:x.node.textContent.trim()}));if(!new URLSearchParams(location.search).has('editor-preview'))initSpicyProducts();}
+export function applyEditable(content){const nodes=editableNodes();for(const item of nodes){const value=content?.copyNodes?.[item.key];if(typeof value==='string' && value.trim())item.node.textContent=value;}if(new URLSearchParams(location.search).has('editor-preview'))window.copyEditorNodes=Object.fromEntries(nodes.map(x=>[x.key,x.node]));window.copyEditorFields=nodes.map(x=>({key:x.key,section:x.section,defaultText:x.defaultText,currentText:x.node.textContent.trim()}));if(!new URLSearchParams(location.search).has('editor-preview')){initSpicyProducts();applyManagedProducts();}}
