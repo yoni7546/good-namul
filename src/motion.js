@@ -3,7 +3,19 @@ export function initMotion(){
  const toggle=document.createElement('button');toggle.className='motion-toggle';toggle.type='button';
  const landscapes=[...document.querySelectorAll('.landscape-photo')];
  let paused=reduced.matches;
- function sync(){document.body.classList.toggle('motion-paused',paused);toggle.textContent=paused?'▶ 모션 재생':'Ⅱ 모션 멈춤';toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',paused?'모션 재생':'모션 일시 정지');requestAnimationFrame(updateLandscape);}
+ const headline=document.querySelector('.hero .five-second strong');
+ const headlineNumber=headline?.firstChild?.nodeType===Node.TEXT_NODE?headline.firstChild:null;
+ const editorPreview=new URLSearchParams(location.search).has('editor-preview');
+ let headlineTimer=null;
+ function syncHeadline(){
+  clearTimeout(headlineTimer);headlineTimer=null;
+  if(!headlineNumber || editorPreview)return;
+  if(paused){headlineNumber.textContent='5';return;}
+  let value=1;
+  function tick(){if(paused)return;headlineNumber.textContent=String(value);const delay=value===5?900:350;value=value===5?1:value+1;headlineTimer=setTimeout(tick,delay);}
+  tick();
+ }
+ function sync(){syncHeadline();document.body.classList.toggle('motion-paused',paused);toggle.textContent=paused?'▶ 모션 재생':'Ⅱ 모션 멈춤';toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',paused?'모션 재생':'모션 일시 정지');requestAnimationFrame(updateLandscape);}
  toggle.addEventListener('click',()=>{paused=!paused;sync()});reduced.addEventListener('change',e=>{paused=e.matches;sync()});document.body.append(toggle);sync();
  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target)}}),{threshold:.08});
  document.querySelectorAll('.story-copy,.landscape,.section-heading,.promise-grid article,.features>div,.product,.recipe-copy,.recipe-photo,.awards .section>div,.buy h2,.channel-grid>*').forEach((el,i)=>{el.style.setProperty('--delay',`${i%3*70}ms`);el.classList.add('reveal');observer.observe(el)});
