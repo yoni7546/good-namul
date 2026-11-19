@@ -35,9 +35,9 @@
 
 /* Supplied brand mark in the header and footer. */
 .logo:has(.brand-logo-image)>svg,.logo:has(.brand-logo-image)>span{display:none}
-.logo .brand-logo-image{display:block;width:118px;height:78px;object-fit:contain}
-footer .logo .brand-logo-image{width:145px;height:95px}
-@media(max-width:760px){.logo .brand-logo-image{width:92px;height:62px}footer .logo .brand-logo-image{width:120px;height:80px}}
+.logo .brand-logo-image{display:block;width:240px;height:48px;object-fit:contain}
+footer .logo .brand-logo-image{width:260px;height:50px}
+@media(max-width:760px){.logo .brand-logo-image{width:clamp(100px,35vw,145px);height:40px}footer .logo .brand-logo-image{width:210px;height:45px}}
 
 /* Main photo and decorative caption placement. */
 .hero-visual .bowl{width:92%;max-width:670px}
