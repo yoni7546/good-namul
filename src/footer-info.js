@@ -1,5 +1,5 @@
 import './footer-info.css';
-const defaults={company:'고원농산영농조합법인',address:'강원특별자치도 정선군'};
+const defaults={company:'고원농산영농조합법인',representative:'윤봉득',phone:'010-4189-4444',businessNumber:'2258111973',address:'강원도 정선군 사북읍 직전로 299 (우: 233905)',mailOrderNumber:'2015-강원정선-7호',email:'gowon7772@hanmail.net'};
 export async function initFooterInfo(){
  const footer=document.querySelector('footer');if(!footer || footer.querySelector('.business-footer'))return;
  let data=defaults;try{const res=await fetch('/api/footer');if(res.ok)data={...defaults,...await res.json()}}catch{}
