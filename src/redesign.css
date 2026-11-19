@@ -23,10 +23,12 @@
 @media(prefers-reduced-motion:reduce){.recipe-photo img.recipe-slide{animation:none;opacity:0}.recipe-photo img.recipe-slide:first-of-type{opacity:1}}
 
 /* Emphasize each benefit in sequence while it is in view. */
-.feature-list article{transform-origin:left center}
+.feature-list article{transform-origin:center center;--feature-zoom:1.12}
 .feature-list.features-sequence article{animation:feature-emphasis 15s ease-in-out infinite}
 .feature-list.features-sequence article:nth-child(2){animation-delay:5s}
 .feature-list.features-sequence article:nth-child(3){animation-delay:10s}
-@keyframes feature-emphasis{0%,33.34%,100%{transform:scale(1)} 5%,28%{transform:scale(1.035)}}
+@keyframes feature-emphasis{0%,33.34%,100%{transform:scale(1)} 5%,28%{transform:scale(var(--feature-zoom))}}
 .motion-paused .feature-list.features-sequence article{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.feature-list.features-sequence article{animation:none}}
+
+@media(max-width:760px){.feature-list article{--feature-zoom:1.06}}
