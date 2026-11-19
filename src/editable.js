@@ -8,4 +8,4 @@ export function editableNodes(){
  }
  return result;
 }
-export function applyEditable(content){const nodes=editableNodes();for(const item of nodes){const value=content?.copyNodes?.[item.key];if(typeof value==='string' && value.trim())item.node.textContent=value;}window.copyEditorFields=nodes.map(x=>({key:x.key,section:x.section,defaultText:x.defaultText,currentText:x.node.textContent.trim()}));if(!new URLSearchParams(location.search).has('editor-preview'))initSpicyProducts();}
+export function applyEditable(content){const nodes=editableNodes();for(const item of nodes){const value=content?.copyNodes?.[item.key];if(typeof value==='string' && value.trim())item.node.textContent=value;}if(new URLSearchParams(location.search).has('editor-preview'))window.copyEditorNodes=Object.fromEntries(nodes.map(x=>[x.key,x.node]));window.copyEditorFields=nodes.map(x=>({key:x.key,section:x.section,defaultText:x.defaultText,currentText:x.node.textContent.trim()}));if(!new URLSearchParams(location.search).has('editor-preview'))initSpicyProducts();}
