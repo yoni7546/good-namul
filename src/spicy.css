@@ -1,0 +1,7 @@
+.spicy-product .spicy-art{height:380px;padding:32px 42px;background:#f3e2d9;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;cursor:default}
+.spicy-product .spicy-art:before{display:none}
+.spicy-product .spicy-art img{width:100%;height:100%;object-fit:contain;filter:blur(8px);opacity:.75;transform:scale(.96)}
+.spicy-badge{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;background:#173e2c;color:#fff;border-radius:99px;padding:12px 22px;font-size:15px;font-weight:800;box-shadow:0 6px 20px #173e2c30}
+.spicy-status{color:#7a5442;font-size:14px;font-weight:700}
+@media(max-width:1050px){.spicy-product .spicy-art{height:320px;padding:28px 30px}}
+@media(max-width:760px){.spicy-product .spicy-art{height:250px;padding:20px 16px}.spicy-badge{font-size:12px;padding:10px 14px}}
